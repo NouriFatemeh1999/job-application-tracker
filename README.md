@@ -17,7 +17,7 @@ npm install
 node app.js
 
 ## Screenshots
-![App Screenshot](screenshots/1.png)
-![App Screenshot](screenshots/2.png)
-![App Screenshot](screenshots/3.png)
-![App Screenshot](screenshots/4.png)
+![App Screenshot](screenshots/01.png)
+![App Screenshot](screenshots/02.png)
+![App Screenshot](screenshots/03.png)
+![App Screenshot](screenshots/04.png)
