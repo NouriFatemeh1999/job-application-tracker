@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #f5f6fa;
+    padding: 40px;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    background-color: white;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+th {
+    background-color: #f8f9fa;
+    padding: 12px 16px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+td{
+    padding: 12px 16px;
+    border-bottom: 1px solid #f1f1f1;
+    font-size: 13px;
+    text-align: center;
+    color: #101010;
+}
+
+/* tr:hover {
+    background-color: #f5f6fa;
+} */
+
+.status {
+    font-size: 12px;
+    font-weight: bold;
+    background: transparent;
+}
+.Applied {
+    color: #1565c0;
+}
+
+.Interview {
+    color: #f57f17;
+}
+
+.Rejected {
+    color: #c62828;
+}
+
+.Offer {
+    color: #2e7d32;
+}
+
+.row-Rejected {
+    background-color: #ff92a2;
+}
+.row-Offer {
+    background-color: #a5d6a7;
+}
+
+.edit-btn,
+.delete-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 20px;
+    line-height: 1.4;
+    margin: 0 6px 0 0;
+    vertical-align: middle;
+    background: transparent;
+}
+
+.edit-btn {
+    text-decoration: none;
+    color: #0e0e0e;
+}
+
+.delete-btn {
+    border: none;
+    cursor: pointer;
+    margin-right: 0;
+    color: #c62828;
+}
+
+td form {
+    display: inline;
+}
+
+td:last-child {
+    white-space: nowrap;
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 120px);
+    text-align: center;
+}
+
+.btn-add-big {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background-color: #1565c0;
+    color: white;
+    font-size: 40px;
+    border-radius: 50%;
+    text-decoration: none;
+    line-height: 1;
+}
+
+.btn-add-sml {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #1565c0;
+    color: white;
+    font-size: 30px;
+    border-radius: 50%;
+    text-decoration: none;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty-state p {
+    margin-top: 20px;
+    color: #888;
+    font-size: 18px;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form action="/add" method="POST">
+    <input type="text" name="JobTitle" placeholder="Job Title" required>
+    <input type="text" name="Company" placeholder="Company" required>
+    <input type="text" name="Location" placeholder="Location" required>
+    <select name="Status" required>
+        <option value="">Select Status</option>
+        <option value="Applied">Applied</option>
+        <option value="Interview">Interview</option>
+        <option value="Offer">Offer</option>
+        <option value="Rejected">Rejected</option>
+    </select>
+    <input type="number" name="Chance" placeholder="Chance %" required>
+    <input type="date" name="ApplicationDate" placeholder="Application Date" required>
+    <button type="submit">Add Job</button>
+    </form>
+</body>
+</html>

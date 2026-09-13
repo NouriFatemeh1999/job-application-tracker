@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles.css">
+
+</head>
+<body>
+    <h1>Job application: <%= addJob.length %></h1>
+        <% if (addJob.length === 0){ %>
+            <div class="empty-state">
+                <a href="/add" class="btn-add-big">+</a>
+                <p>No jobs yet. Apply now!</p>
+            </div>
+        <% }else{ %>
+        <div class="filters">
+            <p>Filter by:</p>
+            <select id="filterStatus">
+                <option value="">All Status</option>
+                <option value="Applied">Applied</option>
+                <option value="Interview">Interview</option>
+                <option value="Offer">Offer</option>
+                <option value="Rejected">Rejected</option>
+            </select>
+
+            <input type="date" id="filterDate">
+
+            <input type="number" id="filterChance" placeholder="Chance %" min="0" max="100">
+        </div>
+    <table>
+    <thead>
+        <tr>        
+            <th>Job Title</th>
+            <th>Company</th>
+            <th>Location</th>
+            <th>Status</th>
+            <th>Chance</th>
+            <th>Application Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%for (let job of addJob){%>
+        <tr class="row-<%= job.Status %>" 
+            data-status="<%= job.Status %>" 
+            data-date="<%= job.ApplicationDate %>" 
+            data-chance="<%= job.Chance %>">            <td><%= job.JobTitle %></td>
+            <td><%= job.Company %></td>
+            <td><%= job.Location %></td>
+            <td class="status <%=job.Status%>"><%= job.Status %></td>
+            <td><%= job.Chance %><span>%</span></td>
+            <td><%= job.ApplicationDate %></td>
+            <td>
+                    <a class="edit-btn" href="/edit/<%= job.id %>">🖉</a>
+                    <form action="/delete/<%= job.id %>" method="POST">
+                        <button class="delete-btn" type="submit">🗑</button>
+                    </form>
+            </td>
+
+        </tr>
+        <%}%>
+    </tbody>
+</table>
+        <button class="btn-add-sml" onclick="window.location.href='/add'">+</button>
+    <% } %>
+
+<script>
+    function filterJobs() {
+        const status = document.getElementById('filterStatus').value;
+        const date = document.getElementById('filterDate').value;
+        const chance = document.getElementById('filterChance').value;
+
+        const tbody = document.querySelector('tbody');
+        const rows = Array.from(document.querySelectorAll('tbody tr'));
+
+        rows.sort((a, b) => {
+            const aStatus = a.dataset.status;
+            const bStatus = b.dataset.status;
+            
+            if (status !== '') {
+                if (aStatus === status && bStatus !== status) return -1;
+                if (aStatus !== status && bStatus === status) return 1;
+            }
+
+            if (chance !== '') {
+                return parseInt(b.dataset.chance) - parseInt(a.dataset.chance);
+            }
+
+            if (date !== '') {
+                return a.dataset.date > b.dataset.date ? 1 : -1;
+            }
+
+            return 0;
+        });
+
+        rows.forEach(row => tbody.appendChild(row));
+    }
+
+    document.getElementById('filterStatus').addEventListener('change', filterJobs);
+    document.getElementById('filterDate').addEventListener('change', filterJobs);
+    document.getElementById('filterChance').addEventListener('input', filterJobs);
+</script>
+
+</body>
+</html>
